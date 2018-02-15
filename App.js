@@ -12,6 +12,12 @@ import {
   View
 } from 'react-native';
 
+import Gambar from './src/component/Gambar';
+import Info from './src/component/Info';
+import Connect from './src/component/Connect';
+import Record from './src/component/Record';
+import Stop from './src/component/StopRecord';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -20,24 +26,29 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
-  
-}
+    render(){
+      return(
+        <View style={styles.container} >
+          <Gambar/>
+          <Info
+            style={styles.info}
+          />
+          <Connect/>
+          <Record/>
+          <Stop/>
+        </View>
+      );
+    }
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#fbc531',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  info:{
+    alignItems:'center',
+    justifyContent:'center',
+    marginLeft:'25%'
+  }
 });
